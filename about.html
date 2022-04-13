@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/index.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/index.min.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" 
+          href=
+"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        fontFamily: {
+          sans: ['Inter', 'sans'],
+        },
+      }
+    }
+  }
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js" integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
+<script>
+  $(document).ready(function() {
+  $(".nav-toggler").each(function(_, navToggler) {
+    var target = $(navToggler).data("target");
+    $(navToggler).on("click", function() {
+      $(target).animate({
+        height: "toggle"
+      });
+    });
+  });
+});
+
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js" integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+<style>
+  .scroll-hidden::-webkit-scrollbar {
+    height: 0px;
+    background: transparent; /* make scrollbar transparent */
+  }
+  .icon {
+      padding: 10px;
+      min-width: 40px;
+  }
+</style>
+</head>
+<body>
+  <header x-data="{ isOpen: false }" class="bg-white shadow">
+<div class="flex w-full bg-sky-500 h-10 px-5">
+    <div class="flex w-1/2 content-center md:w-full md:justify-start text-sm">
+      <ul class="list-reset flex justify-between flex-1 md:flex-none items-center">
+          <li class="">
+              <a class="inline-block text-white py-2 px-4" href="#"><i class="fa fas fa-phone"></i> +91-0123456789 | +91-0123456789 </a>
+          </li>
+          <li class="">
+              <a class="inline-block text-white py-2 px-4" href="#"><i class="fa fas far fa-envelope"></i> info@joinus4education.com </a>
+          </li>
+          <li class="">
+              <a class="inline-block text-white py-2 px-4" href="#"> An ISO 9001-2008 Certified Company </a>
+          </li>
+      </ul>
+  </div>
+  <div class="flex w-1/2 content-center md:w-full text-sm flex-row-reverse px-2 mt-1">
+    <ul>
+      <li class="inline-block text-white bg-black font-bold hover:border border-white px-3 hover:bg-transparent">
+        <i class="fa fa-facebook text-lg" aria-hidden="true"></i>
+      </li>
+      <li class="inline-block text-white bg-black font-bold hover:border border-white px-3 hover:bg-transparent">
+        <i class="fa fa-instagram text-lg" aria-hidden="true"></i>
+      </li>
+      <li class="inline-block text-white bg-black font-bold hover:border border-white  px-3  hover:bg-transparent">
+        <i class="fa fa-twitter text-lg" aria-hidden="true"></i>
+      </li>
+      <li class="inline-block text-white bg-black font-bold hover:border border-white  px-3  hover:bg-transparent">
+        <i class="fa fa-youtube text-lg" aria-hidden="true"></i>
+      </li>
+      <li class="inline-block text-white bg-black font-bold hover:border border-white  px-3  hover:bg-transparent">
+        <i class="fa fa-linkedin text-lg" aria-hidden="true"></i>
+      </li>
+    </ul>
+</div>
+</div>
+    <nav class="container mx-auto py-3">
+      <div class="flex flex-col md:flex-row md:justify-between md:items-center">
+        <div class="flex justify-between items-center">
+          <div class="flex items-center">
+            <a class="text-gray-800 text-xl font-bold md:text-2xl hover:text-gray-700" href="#"><image src="assets/image/logo.png" class="w-64 h-auto"></a>
+            <!-- Search input on desktop screen -->
+          </div>
+          <!-- Mobile menu button -->
+          <div class="flex md:hidden">
+            <button @click="isOpen = !isOpen" type="button" class="text-gray-500 hover:text-gray-600 focus:outline-none focus:text-gray-600" aria-label="toggle menu">
+              <svg viewBox="0 0 24 24" class="h-6 w-6 fill-current">
+                <path fill-rule="evenodd" d="M4 5h16a1 1 0 0 1 0 2H4a1 1 0 1 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2z"></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+        <!-- Mobile Menu open: "block", Menu closed: "hidden" -->
+        <div class="md:flex items-center" :class="isOpen ? 'block' : 'hidden'">
+          <div class="flex flex-col mt-2 md:flex-row md:mt-0 md:mx-1">
+            <a class="my-1 text-gray-500 hover:text-black md:mx-4 md:my-0" href="index.html">Home</a>
+            <a class=" underline underline-offset-8 decoration-rose-500 my-1 text-sky-500 md:mx-4 md:my-0" href="#">About Us</a>
+            <a class="my-1 text-gray-500 hover:text-black md:mx-4 md:my-0" href="#">Services</a>
+            <a class=" dropdown-toggle my-1 text-gray-500 leading-2 hover:text-black md:mx-4 md:my-0" href="#" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">Overview
+              <svg
+              aria-hidden="true"
+              focusable="false"
+              data-prefix="fas"
+              data-icon="caret-down"
+              class="w-2 ml-2 inline-block"
+              role="img"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 320 512"
+            >
+              <path
+                fill="currentColor"
+                d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"
+              ></path>
+            </svg>
+            </a>
+            <ul
+            class="
+              dropdown-menu
+              min-w-max
+              absolute
+              hidden
+              bg-white
+              text-base
+              z-50
+              float-left
+              py-2
+              list-none
+              text-left
+              rounded-lg
+              shadow-lg
+              mt-1
+              hidden
+              m-0
+              bg-clip-padding
+              border-none
+            "
+            aria-labelledby="dropdownMenuButton2"
+          >
+            <li>
+              <a
+                class="
+                  dropdown-item
+                  text-sm
+                  py-2
+                  px-4
+                  font-normal
+                  block
+                  w-full
+                  whitespace-nowrap
+                  bg-transparent
+                  text-gray-700
+                  hover:bg-gray-100
+                "
+                href="#"
+                >Action</a
+              >
+            </li>
+            <li>
+              <a
+                class="
+                  dropdown-item
+                  text-sm
+                  py-2
+                  px-4
+                  font-normal
+                  block
+                  w-full
+                  whitespace-nowrap
+                  bg-transparent
+                  text-gray-700
+                  hover:bg-gray-100
+                "
+                href="#"
+                >Another action</a
+              >
+            </li>
+            <li>
+              <a
+                class="
+                  dropdown-item
+                  text-sm
+                  py-2
+                  px-4
+                  font-normal
+                  block
+                  w-full
+                  whitespace-nowrap
+                  bg-transparent
+                  text-gray-700
+                  hover:bg-gray-100
+                "
+                href="#"
+                >Something else here</a
+              >
+            </li>
+          </ul>
+           
+          <a class=" dropdown-toggle my-1 text-gray-500 leading-2 hover:text-black md:mx-4 md:my-0" href="#" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">Our Work
+            <svg
+            aria-hidden="true"
+            focusable="false"
+            data-prefix="fas"
+            data-icon="caret-down"
+            class="w-2 ml-2 inline-block"
+            role="img"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 320 512"
+          >
+            <path
+              fill="currentColor"
+              d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"
+            ></path>
+          </svg>
+          </a>
+          <ul
+          class="
+            dropdown-menu
+            min-w-max
+            absolute
+            hidden
+            bg-white
+            text-base
+            z-50
+            float-left
+            py-2
+            list-none
+            text-left
+            rounded-lg
+            shadow-lg
+            mt-1
+            hidden
+            m-0
+            bg-clip-padding
+            border-none
+          "
+          aria-labelledby="dropdownMenuButton2"
+        >
+          <li>
+            <a
+              class="
+                dropdown-item
+                text-sm
+                py-2
+                px-4
+                font-normal
+                block
+                w-full
+                whitespace-nowrap
+                bg-transparent
+                text-gray-700
+                hover:bg-gray-100
+              "
+              href="#"
+              >Action</a
+            >
+          </li>
+          <li>
+            <a
+              class="
+                dropdown-item
+                text-sm
+                py-2
+                px-4
+                font-normal
+                block
+                w-full
+                whitespace-nowrap
+                bg-transparent
+                text-gray-700
+                hover:bg-gray-100
+              "
+              href="#"
+              >Another action</a
+            >
+          </li>
+          <li>
+            <a
+              class="
+                dropdown-item
+                text-sm
+                py-2
+                px-4
+                font-normal
+                block
+                w-full
+                whitespace-nowrap
+                bg-transparent
+                text-gray-700
+                hover:bg-gray-100
+              "
+              href="#"
+              >Something else here</a
+            >
+          </li>
+        </ul>
+        <a class=" dropdown-toggle my-1 text-gray-500 leading-2 hover:text-black md:mx-4 md:my-0" href="#" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">Country
+          <svg
+          aria-hidden="true"
+          focusable="false"
+          data-prefix="fas"
+          data-icon="caret-down"
+          class="w-2 ml-2 inline-block"
+          role="img"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 320 512"
+        >
+          <path
+            fill="currentColor"
+            d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"
+          ></path>
+        </svg>
+        </a>
+        <ul
+        class="
+          dropdown-menu
+          min-w-max
+          absolute
+          hidden
+          bg-white
+          text-base
+          z-50
+          float-left
+          py-2
+          list-none
+          text-left
+          rounded-lg
+          shadow-lg
+          mt-1
+          hidden
+          m-0
+          bg-clip-padding
+          border-none
+        "
+        aria-labelledby="dropdownMenuButton2"
+      >
+        <li>
+          <a
+            class="
+              dropdown-item
+              text-sm
+              py-2
+              px-4
+              font-normal
+              block
+              w-full
+              whitespace-nowrap
+              bg-transparent
+              text-gray-700
+              hover:bg-gray-100
+            "
+            href="#"
+            >Action</a
+          >
+        </li>
+        <li>
+          <a
+            class="
+              dropdown-item
+              text-sm
+              py-2
+              px-4
+              font-normal
+              block
+              w-full
+              whitespace-nowrap
+              bg-transparent
+              text-gray-700
+              hover:bg-gray-100
+            "
+            href="#"
+            >Another action</a
+          >
+        </li>
+        <li>
+          <a
+            class="
+              dropdown-item
+              text-sm
+              py-2
+              px-4
+              font-normal
+              block
+              w-full
+              whitespace-nowrap
+              bg-transparent
+              text-gray-700
+              hover:bg-gray-100
+            "
+            href="#"
+            >Something else here</a
+          >
+        </li>
+      </ul>
+      <a class=" dropdown-toggle my-1 text-gray-500 leading-2 hover:text-black md:mx-4 md:my-0" href="#"  id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">Courses
+        <svg
+        aria-hidden="true"
+        focusable="false"
+        data-prefix="fas"
+        data-icon="caret-down"
+        class="w-2 ml-2 inline-block"
+        role="img"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 320 512"
+      >
+        <path
+          fill="currentColor"
+          d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"
+        ></path>
+      </svg>
+      </a>
+      <ul
+      class="
+        dropdown-menu
+        min-w-max
+        absolute
+        hidden
+        bg-white
+        text-base
+        z-50
+        float-left
+        py-2
+        list-none
+        text-left
+        rounded-lg
+        shadow-lg
+        mt-1
+        hidden
+        m-0
+        bg-clip-padding
+        border-none
+      "
+      aria-labelledby="dropdownMenuButton2"
+    >
+      <li>
+        <a
+          class="
+            dropdown-item
+            text-sm
+            py-2
+            px-4
+            font-normal
+            block
+            w-full
+            whitespace-nowrap
+            bg-transparent
+            text-gray-700
+            hover:bg-gray-100
+          "
+          href="#"
+          >Action</a
+        >
+      </li>
+      <li>
+        <a
+          class="
+            dropdown-item
+            text-sm
+            py-2
+            px-4
+            font-normal
+            block
+            w-full
+            whitespace-nowrap
+            bg-transparent
+            text-gray-700
+            hover:bg-gray-100
+          "
+          href="#"
+          >Another action</a
+        >
+      </li>
+      <li>
+        <a
+          class="
+            dropdown-item
+            text-sm
+            py-2
+            px-4
+            font-normal
+            block
+            w-full
+            whitespace-nowrap
+            bg-transparent
+            text-gray-700
+            hover:bg-gray-100
+          "
+          href="#"
+          >Something else here</a
+        >
+      </li>
+    </ul>
+            <a class="my-1 text-gray-500 hover:text-black md:mx-4 md:my-0" href="#">Contact Us</a>
+            <a class="my-1 text-gray-500 hover:text-black md:mx-4 md:my-0" href="#">Blog</a>
+          </div>
+  
+        
+  
+          <!-- Search input on mobile screen -->
+          
+        </div>
+      </div>
+  
+         </nav>
+  </header>
+  <section>
+
+    <div id="carouselExampleSlidesOnly" class="carousel slide relative py-32 mt-6" data-bs-ride="carousel" style="background-image: url('assets/image/newzealand.jpg')">
+      <div class="carousel-inner relative w-full overflow-hidden">
+        <div class="carousel-item active relative float-left w-full">
+          <p class="text-white text-6xl font-semibold text-center px-60 mx-auto mt-4">
+            Our Vision
+          </p>
+          <p class="text-white text-center text-sm text-lg px-60"> Our employees bring diverse backgrounds and points of view to the service of our constituents. We are one of the fastest and most trusted overseas education and immigration consultants in India. We believe in fostering globalization, through the promotion of higher education across borders.</p>
+        </div>
+        <div class="carousel-item relative float-left w-full">
+          <p class="text-white text-6xl font-semibold text-center px-60 mx-auto mt-4">
+            Our Mission
+          </p>
+          <p class="text-white text-center text-sm text-lg px-60"> To help students achieve their goals and fulfil their dreams by being a world-class foreign education consultant. We ensure that each of our student goes through a hassle-free admission process to the university of their choice. Backed by our expert team of professional consultants, we hope to offer students an opportunity to identify the right universities thereby facilitating lifelong learning. We aim at transforming lives by offering the right education and career guidance for students.</p>
+        </div>
+        <div class="carousel-item relative float-left w-full">
+          <p class="text-white text-6xl font-semibold text-center px-60 mx-auto mt-4">
+            Career
+          </p>
+       <p class="text-white text-center text-sm text-lg px-60">
+        Our employees bring diverse backgrounds and points of view to the service of our constituents. We are one of the fastest and most trusted overseas education and immigration consultants in India. We believe in fostering globalization, through the promotion of higher education across borders.
+       </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section>
+   <div class="w-full h-auto mx-auto" style="background-image: url('assets/image/abtbanner.jpg')"></div>   
+  </section>
+ <section>
+<div class="grid lg:grid-cols-2 px-52 gap-10 md:grid-cols-2 sm:grid-cols-1 mx-auto">
+<div>
+    <p class="font-semibold text-2xl text-black py-4"><span class="underline underline-offset-8 decoration-green-500 decoration-1">About Us</span></p>
+        <img src="assets/image/aboutus.jpg" alt="">
+</div>
+<div>
+ <p class="font-semibold text-2xl text-black py-4"><span class="underline underline-offset-8 decoration-green-500 decoration-1">Overseas</span> Education Consultants in India</p>
+ <p class="text-justify text-sm">Joinus4GlobalEducation is one of the top overseas education consultants in Bangalore, with an overall experience of more than 10 years in Education Counselling Services and an adept acumen in College admission procedure we thrive on quality service to our clients. MBBS in Ukraine would be the perfect answer to this question. Study MBBS in Ukraine offers excellent medical career across the globe. Joinus4Global Education is an best Overseas Education Consultants in Bangalore, Indian students can get direct admission for low-cost MBBS in Ukraine. Apply for MBBS admission in top Ukrainian colleges to study MBBS in Ukraine for Indian students.
+ <br>
+ To earn medical expertise, get admission at low cost MBBS in Russia, Russian MBBS admission is worth for Indian students. The eligibility to study MBBS in Russia is after 10+2. Joinus4GlobalEducation is an <b>Abroad Education Consultants in Bangalore</b>, A Canadian MBA degree is highly regarded, making an MBA study in Canada will be attractive to many international students. Among Canada’s beautiful natural scenery lies a welcoming environment that carries a high quality of life. Many researchers, scientists, and entrepreneurs have helped develop Canada into one of the most intellectually stimulating places to learn.
+ </p>
+</div>
+
+</div>
+ </section>
+   
+ 
+  
+ 
+
+
+
+  <footer class="text-center bg-gray-900 text-gray-400 mx-auto py-6 mt-10">
+  <div class="container mx-auto my-auto">
+    <div class="grid lg:grid-cols-4 md:grid-cols-2">
+      <div class="mb-6 mx-auto">
+        <h5 class="uppercase font-bold mb-2.5 text-left"> <span class="text-yellow-600 font-bold text-lg"> |</span> Useful Links</h5>
+          <ul class="list-unstyled list-none mb-0 text-sm text-left mx-auto">
+            <li><a href="#" title="" class="hover:text-yellow-600"><i class="fa fa-angle-double-right"></i> Home Page</a></li>
+            <li><a href="#" title="" class="hover:text-yellow-600"><i class="fa fa-angle-double-right"></i> About Us</a></li>
+            <li><a href="#" title="" class="hover:text-yellow-600"><i class="fa fa-angle-double-right"></i> Services</a></li>
+            <li><a href="#" title="" class="hover:text-yellow-600"><i class="fa fa-angle-double-right"></i> Canada Immigration</a></li>
+            <li><a a href="#" title="" class="hover:text-yellow-600"><i class="fa fa-angle-double-right"></i> Admission Guidance</a></li>
+            <li><a href="#" title="" class="hover:text-yellow-600"><i class="fa fa-angle-double-right"></i> Career Counselling</a></li>
+            <li><a href="#" title="" class="hover:text-yellow-600"><i class="fa fa-angle-double-right"></i> We Are</a></li>
+            <li><a href="#" title="" class="hover:text-yellow-600"><i class="fa fa-angle-double-right"></i> Why Us</a></li>
+            <li><a href="#" title="" class="hover:text-yellow-600"><i class="fa fa-angle-double-right"></i> Founder Message</a></li>
+            <li><a href="#" title="" class="hover:text-yellow-600"><i class="fa fa-angle-double-right"></i> Blog</a></li>
+            <li><a href="#" title="" class="hover:text-yellow-600"><i class="fa fa-angle-double-right"></i> Contact Us</a></li> 
+            <li><a href="#" title="" class="hover:text-yellow-600"><i class="fa fa-angle-double-right"></i> Our Branches</a></li>
+            <li><a href="#" title="" class="hover:text-yellow-600"><i class="fa fa-angle-double-right"></i> FAQ</a></li>
+            <li><a href="#" title="" class="hover:text-yellow-600"><i class="fa fa-angle-double-right"></i> Admin</a></li>
+         </ul>
+      </div>
+
+
+      <div class="mb-6 mx-auto">
+        <h5 class="uppercase font-bold mb-2.5 text-left"><span class="text-yellow-600 font-bold text-lg"> |</span> Quick Links</h5>
+
+          <ul class="list-unstyled list-none mb-0 text-sm text-left mx-auto">
+            <li><a href="#" title="" class="hover:text-yellow-600"><i class="fa fa-angle-double-right"></i> MBA</a></li>
+            <li><a href="#" title="" class="hover:text-yellow-600"><i class="fa fa-angle-double-right"></i> MBBS</a></li>
+            <li><a href="#" title="" class="hover:text-yellow-600"><i class="fa fa-angle-double-right"></i> MS</a></li>
+            <li><a href="#" title="" class="hover:text-yellow-600"><i class="fa fa-angle-double-right"></i> B.TECH</a></li>
+            <li><a a href="#" title="" class="hover:text-yellow-600"><i class="fa fa-angle-double-right"></i> IELTS Coaching</a></li>
+            <li><a href="#" title="" class="hover:text-yellow-600"><i class="fa fa-angle-double-right"></i> TOEFL Coaching</a></li>
+            <li><a href="#" title="" class="hover:text-yellow-600"><i class="fa fa-angle-double-right"></i> GRE Coaching</a></li>
+            <li><a href="#" title="" class="hover:text-yellow-600"><i class="fa fa-angle-double-right"></i> GMAT Coaching</a></li>
+            <li><a href="#" title="" class="hover:text-yellow-600"><i class="fa fa-angle-double-right"></i> Institutional-Promotion</a></li>
+            <li><a href="#" title="" class="hover:text-yellow-600"><i class="fa fa-angle-double-right"></i> Local Gaurdian Service</a></li>
+           
+        </ul>
+      </div>
+
+      <div class="mb-6 mx-auto">
+        <h5 class="uppercase font-bold mb-2.5 text-left"> <span class="text-yellow-600 font-bold text-lg"> |</span> Useful Links</h5>
+        <ul class="list-unstyled list-none mb-0 text-sm text-left mx-auto">
+          <li><a href="#" title="" class="hover:text-yellow-600"><i class="fa fa-angle-double-right"></i> Home Page</a></li>
+          <li><a href="#" title="" class="hover:text-yellow-600"><i class="fa fa-angle-double-right"></i> About Us</a></li>
+          <li><a href="#" title="" class="hover:text-yellow-600"><i class="fa fa-angle-double-right"></i> Services</a></li>
+          <li><a href="#" title="" class="hover:text-yellow-600"><i class="fa fa-angle-double-right"></i> Canada Immigration</a></li>
+          <li><a a href="#" title="" class="hover:text-yellow-600"><i class="fa fa-angle-double-right"></i> Admission Guidance</a></li>
+          <li><a href="#" title="" class="hover:text-yellow-600"><i class="fa fa-angle-double-right"></i> Career Counselling</a></li>
+          <li><a href="#" title="" class="hover:text-yellow-600"><i class="fa fa-angle-double-right"></i> We Are</a></li>
+          <li><a href="#" title="" class="hover:text-yellow-600"><i class="fa fa-angle-double-right"></i> Why Us</a></li>
+          <li><a href="#" title="" class="hover:text-yellow-600"><i class="fa fa-angle-double-right"></i> Founder Message</a></li>
+          <li><a href="#" title="" class="hover:text-yellow-600"><i class="fa fa-angle-double-right"></i> Blog</a></li>
+          <li><a href="#" title="" class="hover:text-yellow-600"><i class="fa fa-angle-double-right"></i> Contact Us</a></li> 
+          <li><a href="#" title="" class="hover:text-yellow-600"><i class="fa fa-angle-double-right"></i> Our Branches</a></li>
+          <li><a href="#" title="" class="hover:text-yellow-600"><i class="fa fa-angle-double-right"></i> FAQ</a></li>
+          <li><a href="#" title="" class="hover:text-yellow-600"><i class="fa fa-angle-double-right"></i> Admin</a></li>
+       </ul>
+      </div>
+
+
+      <div class="mb-6 mx-auto">
+        <h5 class="uppercase font-bold mb-2.5 text-left"> <span class="text-yellow-600 font-bold text-lg"> |</span> Useful Links</h5>
+
+        <ul class="list-unstyled list-none mb-0 text-sm text-left mx-auto">
+          <li><a href="#" title="" class="hover:text-yellow-600"><i class="fa fa-angle-double-right"></i> Home Page</a></li>
+          <li><a href="#" title="" class="hover:text-yellow-600"><i class="fa fa-angle-double-right"></i> About Us</a></li>
+          <li><a href="#" title="" class="hover:text-yellow-600"><i class="fa fa-angle-double-right"></i> Services</a></li>
+          <li><a href="#" title="" class="hover:text-yellow-600"><i class="fa fa-angle-double-right"></i> Canada Immigration</a></li>
+          <li><a a href="#" title="" class="hover:text-yellow-600"><i class="fa fa-angle-double-right"></i> Admission Guidance</a></li>
+          <li><a href="#" title="" class="hover:text-yellow-600"><i class="fa fa-angle-double-right"></i> Career Counselling</a></li>
+          <li><a href="#" title="" class="hover:text-yellow-600"><i class="fa fa-angle-double-right"></i> We Are</a></li>
+          <li><a href="#" title="" class="hover:text-yellow-600"><i class="fa fa-angle-double-right"></i> Why Us</a></li>
+          <li><a href="#" title="" class="hover:text-yellow-600"><i class="fa fa-angle-double-right"></i> Founder Message</a></li>
+          <li><a href="#" title="" class="hover:text-yellow-600"><i class="fa fa-angle-double-right"></i> Blog</a></li>
+          <li><a href="#" title="" class="hover:text-yellow-600"><i class="fa fa-angle-double-right"></i> Contact Us</a></li> 
+          <li><a href="#" title="" class="hover:text-yellow-600"><i class="fa fa-angle-double-right"></i> Our Branches</a></li>
+          <li><a href="#" title="" class="hover:text-yellow-600"><i class="fa fa-angle-double-right"></i> FAQ</a></li>
+          <li><a href="#" title="" class="hover:text-yellow-600"><i class="fa fa-angle-double-right"></i> Admin</a></li>
+       </ul>
+      </div>
+
+    </div>
+  </div>
+
+<div class="mt-4">
+  <ul class="inline-block space-x-2">
+    <li class="inline-block text-yellow-600 border border-white hover:border-yellow-600  px-2 hover:bg-yellow-600 hover:text-white hover:bg-opacity-40">
+      <i class="fa fa-facebook text-sm" aria-hidden="true"></i>
+    </li>
+    <li class="inline-block text-yellow-600 border border-white hover:border-yellow-600  px-2 hover:bg-yellow-600 hover:text-white hover:bg-opacity-40">
+      <i class="fa fa-instagram text-sm" aria-hidden="true"></i>
+    </li>
+    <li class="inline-block text-yellow-600 border border-white hover:border-yellow-600  px-2 hover:bg-yellow-600 hover:text-white hover:bg-opacity-40">
+      <i class="fa fa-twitter text-sm" aria-hidden="true"></i>
+    </li>
+    <li class="inline-block text-yellow-600 border border-white hover:border-yellow-600  px-2 hover:bg-yellow-600 hover:text-white hover:bg-opacity-40">
+      <i class="fa fa-youtube text-sm" aria-hidden="true"></i>
+    </li>
+    <li class="inline-block text-yellow-600 border border-white hover:border-yellow-600  px-2 hover:bg-yellow-600 hover:text-white hover:bg-opacity-40">
+      <i class="fa fa-linkedin text-sm" aria-hidden="true"></i>
+    </li>
+  </ul>
+</div>
+  <div class="text-center py-4 bg-black mt-6">
+   <div class="grid lg:grid-cols-2 mx-auto text-center sm:grid-cols-1 md:grid-cols-1 sm:mx-auto">
+<div>
+  <a href="https://placiddigital.com/" target="blank"><p class="text-sm">Copyright © 2021-22. Placid digital.</p></a>
+</div>
+<div>
+  <p class=" text-sm hover:text-yellow-600">Privacy Policy | Disclaimer</p>
+</div>
+   </div>
+  </div>
+</footer>
+
+</body>
+
+</html>

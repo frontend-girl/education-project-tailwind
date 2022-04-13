@@ -1,0 +1,1345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/index.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/index.min.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" 
+          href=
+"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        fontFamily: {
+          sans: ['Inter', 'sans'],
+        },
+      }
+    }
+  }
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js" integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
+<script>
+  $(document).ready(function() {
+  $(".nav-toggler").each(function(_, navToggler) {
+    var target = $(navToggler).data("target");
+    $(navToggler).on("click", function() {
+      $(target).animate({
+        height: "toggle"
+      });
+    });
+  });
+});
+
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js" integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+<style>
+  .scroll-hidden::-webkit-scrollbar {
+    height: 0px;
+    background: transparent; /* make scrollbar transparent */
+  }
+  .icon {
+      padding: 10px;
+      min-width: 40px;
+  }
+</style>
+</head>
+<body>
+  <header x-data="{ isOpen: false }" class="bg-white shadow">
+<div class="flex w-full bg-sky-500 h-10 px-5">
+    <div class="flex w-1/2 content-center md:w-full md:justify-start text-sm">
+      <ul class="list-reset flex justify-between flex-1 md:flex-none items-center">
+          <li class="">
+              <a class="inline-block text-white py-2 px-4" href="#"><i class="fa fas fa-phone"></i> +91-0123456789 | +91-0123456789 </a>
+          </li>
+          <li class="">
+              <a class="inline-block text-white py-2 px-4" href="#"><i class="fa fas far fa-envelope"></i> info@joinus4education.com </a>
+          </li>
+          <li class="">
+              <a class="inline-block text-white py-2 px-4" href="#"> An ISO 9001-2008 Certified Company </a>
+          </li>
+      </ul>
+  </div>
+  <div class="flex w-1/2 content-center md:w-full text-sm flex-row-reverse px-2 mt-1">
+    <ul>
+      <li class="inline-block text-white bg-black font-bold hover:border border-white px-3 hover:bg-transparent">
+        <i class="fa fa-facebook text-lg" aria-hidden="true"></i>
+      </li>
+      <li class="inline-block text-white bg-black font-bold hover:border border-white px-3 hover:bg-transparent">
+        <i class="fa fa-instagram text-lg" aria-hidden="true"></i>
+      </li>
+      <li class="inline-block text-white bg-black font-bold hover:border border-white  px-3  hover:bg-transparent">
+        <i class="fa fa-twitter text-lg" aria-hidden="true"></i>
+      </li>
+      <li class="inline-block text-white bg-black font-bold hover:border border-white  px-3  hover:bg-transparent">
+        <i class="fa fa-youtube text-lg" aria-hidden="true"></i>
+      </li>
+      <li class="inline-block text-white bg-black font-bold hover:border border-white  px-3  hover:bg-transparent">
+        <i class="fa fa-linkedin text-lg" aria-hidden="true"></i>
+      </li>
+    </ul>
+</div>
+</div>
+    <nav class="container mx-auto py-3">
+      <div class="flex flex-col md:flex-row md:justify-between md:items-center">
+        <div class="flex justify-between items-center">
+          <div class="flex items-center">
+            <a class="text-gray-800 text-xl font-bold md:text-2xl hover:text-gray-700" href="#"><image src="assets/image/logo.png" class="w-64 h-auto"></a>
+            <!-- Search input on desktop screen -->
+          </div>
+          <!-- Mobile menu button -->
+          <div class="flex md:hidden">
+            <button @click="isOpen = !isOpen" type="button" class="text-gray-500 hover:text-gray-600 focus:outline-none focus:text-gray-600" aria-label="toggle menu">
+              <svg viewBox="0 0 24 24" class="h-6 w-6 fill-current">
+                <path fill-rule="evenodd" d="M4 5h16a1 1 0 0 1 0 2H4a1 1 0 1 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2z"></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+        <!-- Mobile Menu open: "block", Menu closed: "hidden" -->
+        <div class="md:flex items-center" :class="isOpen ? 'block' : 'hidden'">
+          <div class="flex flex-col mt-2 md:flex-row md:mt-0 md:mx-1">
+            <a class=" underline underline-offset-8 decoration-rose-500 my-1 text-sky-500 md:mx-4 md:my-0" href="#">Home</a>
+            <a class="my-1 text-gray-500 hover:text-black md:mx-4 md:my-0" href="about.html">About Us</a>
+            <a class="my-1 text-gray-500 hover:text-black md:mx-4 md:my-0" href="#">Services</a>
+            <a class=" dropdown-toggle my-1 text-gray-500 leading-2 hover:text-black md:mx-4 md:my-0" href="#" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">Overview
+              <svg
+              aria-hidden="true"
+              focusable="false"
+              data-prefix="fas"
+              data-icon="caret-down"
+              class="w-2 ml-2 inline-block"
+              role="img"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 320 512"
+            >
+              <path
+                fill="currentColor"
+                d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"
+              ></path>
+            </svg>
+            </a>
+            <ul
+            class="
+              dropdown-menu
+              min-w-max
+              absolute
+              hidden
+              bg-white
+              text-base
+              z-50
+              float-left
+              py-2
+              list-none
+              text-left
+              rounded-lg
+              shadow-lg
+              mt-1
+              hidden
+              m-0
+              bg-clip-padding
+              border-none
+            "
+            aria-labelledby="dropdownMenuButton2"
+          >
+            <li>
+              <a
+                class="
+                  dropdown-item
+                  text-sm
+                  py-2
+                  px-4
+                  font-normal
+                  block
+                  w-full
+                  whitespace-nowrap
+                  bg-transparent
+                  text-gray-700
+                  hover:bg-gray-100
+                "
+                href="#"
+                >Action</a
+              >
+            </li>
+            <li>
+              <a
+                class="
+                  dropdown-item
+                  text-sm
+                  py-2
+                  px-4
+                  font-normal
+                  block
+                  w-full
+                  whitespace-nowrap
+                  bg-transparent
+                  text-gray-700
+                  hover:bg-gray-100
+                "
+                href="#"
+                >Another action</a
+              >
+            </li>
+            <li>
+              <a
+                class="
+                  dropdown-item
+                  text-sm
+                  py-2
+                  px-4
+                  font-normal
+                  block
+                  w-full
+                  whitespace-nowrap
+                  bg-transparent
+                  text-gray-700
+                  hover:bg-gray-100
+                "
+                href="#"
+                >Something else here</a
+              >
+            </li>
+          </ul>
+           
+          <a class=" dropdown-toggle my-1 text-gray-500 leading-2 hover:text-black md:mx-4 md:my-0" href="#" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">Our Work
+            <svg
+            aria-hidden="true"
+            focusable="false"
+            data-prefix="fas"
+            data-icon="caret-down"
+            class="w-2 ml-2 inline-block"
+            role="img"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 320 512"
+          >
+            <path
+              fill="currentColor"
+              d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"
+            ></path>
+          </svg>
+          </a>
+          <ul
+          class="
+            dropdown-menu
+            min-w-max
+            absolute
+            hidden
+            bg-white
+            text-base
+            z-50
+            float-left
+            py-2
+            list-none
+            text-left
+            rounded-lg
+            shadow-lg
+            mt-1
+            hidden
+            m-0
+            bg-clip-padding
+            border-none
+          "
+          aria-labelledby="dropdownMenuButton2"
+        >
+          <li>
+            <a
+              class="
+                dropdown-item
+                text-sm
+                py-2
+                px-4
+                font-normal
+                block
+                w-full
+                whitespace-nowrap
+                bg-transparent
+                text-gray-700
+                hover:bg-gray-100
+              "
+              href="#"
+              >Action</a
+            >
+          </li>
+          <li>
+            <a
+              class="
+                dropdown-item
+                text-sm
+                py-2
+                px-4
+                font-normal
+                block
+                w-full
+                whitespace-nowrap
+                bg-transparent
+                text-gray-700
+                hover:bg-gray-100
+              "
+              href="#"
+              >Another action</a
+            >
+          </li>
+          <li>
+            <a
+              class="
+                dropdown-item
+                text-sm
+                py-2
+                px-4
+                font-normal
+                block
+                w-full
+                whitespace-nowrap
+                bg-transparent
+                text-gray-700
+                hover:bg-gray-100
+              "
+              href="#"
+              >Something else here</a
+            >
+          </li>
+        </ul>
+        <a class=" dropdown-toggle my-1 text-gray-500 leading-2 hover:text-black md:mx-4 md:my-0" href="#" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">Country
+          <svg
+          aria-hidden="true"
+          focusable="false"
+          data-prefix="fas"
+          data-icon="caret-down"
+          class="w-2 ml-2 inline-block"
+          role="img"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 320 512"
+        >
+          <path
+            fill="currentColor"
+            d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"
+          ></path>
+        </svg>
+        </a>
+        <ul
+        class="
+          dropdown-menu
+          min-w-max
+          absolute
+          hidden
+          bg-white
+          text-base
+          z-50
+          float-left
+          py-2
+          list-none
+          text-left
+          rounded-lg
+          shadow-lg
+          mt-1
+          hidden
+          m-0
+          bg-clip-padding
+          border-none
+        "
+        aria-labelledby="dropdownMenuButton2"
+      >
+        <li>
+          <a
+            class="
+              dropdown-item
+              text-sm
+              py-2
+              px-4
+              font-normal
+              block
+              w-full
+              whitespace-nowrap
+              bg-transparent
+              text-gray-700
+              hover:bg-gray-100
+            "
+            href="#"
+            >Action</a
+          >
+        </li>
+        <li>
+          <a
+            class="
+              dropdown-item
+              text-sm
+              py-2
+              px-4
+              font-normal
+              block
+              w-full
+              whitespace-nowrap
+              bg-transparent
+              text-gray-700
+              hover:bg-gray-100
+            "
+            href="#"
+            >Another action</a
+          >
+        </li>
+        <li>
+          <a
+            class="
+              dropdown-item
+              text-sm
+              py-2
+              px-4
+              font-normal
+              block
+              w-full
+              whitespace-nowrap
+              bg-transparent
+              text-gray-700
+              hover:bg-gray-100
+            "
+            href="#"
+            >Something else here</a
+          >
+        </li>
+      </ul>
+      <a class=" dropdown-toggle my-1 text-gray-500 leading-2 hover:text-black md:mx-4 md:my-0" href="#"  id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">Courses
+        <svg
+        aria-hidden="true"
+        focusable="false"
+        data-prefix="fas"
+        data-icon="caret-down"
+        class="w-2 ml-2 inline-block"
+        role="img"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 320 512"
+      >
+        <path
+          fill="currentColor"
+          d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"
+        ></path>
+      </svg>
+      </a>
+      <ul
+      class="
+        dropdown-menu
+        min-w-max
+        absolute
+        hidden
+        bg-white
+        text-base
+        z-50
+        float-left
+        py-2
+        list-none
+        text-left
+        rounded-lg
+        shadow-lg
+        mt-1
+        hidden
+        m-0
+        bg-clip-padding
+        border-none
+      "
+      aria-labelledby="dropdownMenuButton2"
+    >
+      <li>
+        <a
+          class="
+            dropdown-item
+            text-sm
+            py-2
+            px-4
+            font-normal
+            block
+            w-full
+            whitespace-nowrap
+            bg-transparent
+            text-gray-700
+            hover:bg-gray-100
+          "
+          href="#"
+          >Action</a
+        >
+      </li>
+      <li>
+        <a
+          class="
+            dropdown-item
+            text-sm
+            py-2
+            px-4
+            font-normal
+            block
+            w-full
+            whitespace-nowrap
+            bg-transparent
+            text-gray-700
+            hover:bg-gray-100
+          "
+          href="#"
+          >Another action</a
+        >
+      </li>
+      <li>
+        <a
+          class="
+            dropdown-item
+            text-sm
+            py-2
+            px-4
+            font-normal
+            block
+            w-full
+            whitespace-nowrap
+            bg-transparent
+            text-gray-700
+            hover:bg-gray-100
+          "
+          href="#"
+          >Something else here</a
+        >
+      </li>
+    </ul>
+            <a class="my-1 text-gray-500 hover:text-black md:mx-4 md:my-0" href="#">Contact Us</a>
+            <a class="my-1 text-gray-500 hover:text-black md:mx-4 md:my-0" href="#">Blog</a>
+          </div>
+  
+        
+  
+          <!-- Search input on mobile screen -->
+          
+        </div>
+      </div>
+  
+         </nav>
+  </header>
+  
+
+	<section>
+
+    <div id="carouselExampleCaptions" class="carousel slide relative" data-bs-ride="carousel">
+      <div class="carousel-indicators absolute right-0 bottom-0 left-0 flex justify-center p-0 mb-4">
+        <button
+          type="button"
+          data-bs-target="#carouselExampleCaptions"
+          data-bs-slide-to="0"
+          class="active"
+          aria-current="true"
+          aria-label="Slide 1"
+        ></button>
+        <button
+          type="button"
+          data-bs-target="#carouselExampleCaptions"
+          data-bs-slide-to="1"
+          aria-label="Slide 2"
+        ></button>
+        <button
+          type="button"
+          data-bs-target="#carouselExampleCaptions"
+          data-bs-slide-to="2"
+          aria-label="Slide 3"
+        ></button>
+        <button
+        type="button"
+        data-bs-target="#carouselExampleCaptions"
+        data-bs-slide-to="3"
+        aria-label="Slide 4"
+      ></button>
+      </div>
+      <div class="carousel-inner relative w-full overflow-hidden">
+        <div class="carousel-item active relative float-left w-full">
+          <div class="relative overflow-hidden bg-no-repeat bg-cover" style="background-position: 50%;">
+            <img src="assets\image\singapore2.jpg" class="block w-full" style="height:480px;"/>
+            <div class="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden bg-fixed bg-black opacity-50"></div>
+          </div>
+          <div class="carousel-caption hidden md:block absolute text-right mb-44">
+            <h5 class="text-4xl font-bold">Study in singapore</h5>
+            <p class="text-xl">Move towards better future.</p>
+          </div>
+        </div>
+        <div class="carousel-item relative float-left w-full">
+          <div class="relative overflow-hidden bg-no-repeat bg-cover" style="background-position: 50%;">
+            <img src="assets\image\uk.jpg" class="block w-full" style="height:480px;"/>
+            <div class="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden bg-fixed bg-black opacity-50"></div>
+          </div>
+          <div class="carousel-caption hidden md:block absolute text-left mb-44">
+            <h5 class="text-4xl font-bold">Study in UK</h5>
+            <p class="text-xl">Move towards better future.</p>
+          </div>
+        </div>
+        <div class="carousel-item relative float-left w-full">
+          <div class="relative overflow-hidden bg-no-repeat bg-cover" style="background-position: 50%;">
+            <img src="assets\image\dubai.jpg" class="block w-full" style="height:480px;"/>
+            <div class="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden bg-fixed bg-black opacity-50"></div>
+          </div>
+          <div class="carousel-caption hidden md:block absolute text-right mb-44">
+            <h5 class="text-4xl font-bold">Study in Dubai</h5>
+            <p class="text-xl">Move towards better future.</p>
+          </div>
+        </div>
+        <div class="carousel-item relative float-left w-full">
+          <div class="relative overflow-hidden bg-no-repeat bg-cover" style="background-position: 50%;">
+            <img src="assets\image\us.jpg" class="block w-full" style="height:480px;"/>
+            <div class="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden bg-fixed bg-black opacity-50"></div>
+          </div>
+          <div class="carousel-caption hidden md:block absolute text-left mb-44">
+            <h5 class="text-4xl font-bold">Study in USA</h5>
+            <p class="text-xl">Move towards better future.</p>
+          </div>
+        </div>
+        
+      </div>
+      <button
+        class="carousel-control-prev absolute top-0 bottom-0 flex items-center justify-center p-0 text-center border-0 hover:outline-none hover:no-underline focus:outline-none focus:no-underline left-0"
+        type="button"
+        data-bs-target="#carouselExampleCaptions"
+        data-bs-slide="prev"
+      >
+        <span class="carousel-control-prev-icon inline-block bg-no-repeat" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button
+        class="carousel-control-next absolute top-0 bottom-0 flex items-center justify-center p-0 text-center border-0 hover:outline-none hover:no-underline focus:outline-none focus:no-underline right-0"
+        type="button"
+        data-bs-target="#carouselExampleCaptions"
+        data-bs-slide="next"
+      >
+        <span class="carousel-control-next-icon inline-block bg-no-repeat" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+  </section>
+  <section>
+    <div class="grid lg:grid-cols-6 md:grid-cols-4 sm:grid-cols-2 gap-4 text-center mx-auto bg-gray-100 h-auto my-auto py-6">
+      <div class="">
+        <a title="overseas education services Bangalore" href="#"><i class="fas fa-plane-departure my-fa text-4xl inline-block"></i></a>
+        <p class="display: inline-block font-semibold text-gray-500 text-sm px-2"><a href="#"><strong>Canadian Immigration</strong></a></p>
+     </div>
+     <div class="">
+      <a title="overseas education services Bangalore" href="#"><i class="fas fa-chalkboard-teacher my-fa text-4xl inline-block"></i></a>
+      <p class="display: inline-block font-semibold text-gray-500 text-sm px-2"><a href="#"><strong>IELTS Coaching</strong></a></p>
+    </div>
+    <div class="">
+      <a title="overseas education services Bangalore" href="#"><i class="fas fa-book-reader my-fa text-4xl inline-block"></i></a>
+      <p class="display: inline-block font-semibold text-gray-500 text-sm px-2"><a href="#"><strong>TOFEL Coaching</strong></a></p>
+    </div>
+    <div class="">
+      <a title="overseas education services Bangalore" href="#"><i class="fas fa-chalkboard my-fa text-4xl inline-block"></i></a>
+      <p class="display: inline-block font-semibold text-gray-500 text-sm px-2"><a href="#"><strong>GRE Coaching</strong></a></p>
+    </div>
+    <div class="">
+      <a title="overseas education services Bangalore" href="#"><i class="fa fa-book my-fa text-4xl inline-block"></i></a>
+      <p class="display: inline-block font-semibold text-gray-500 text-sm px-2"><a href="#"><strong>GMAT Coaching</strong></a></p>
+    </div>
+    <div class="">
+      <a title="overseas education services Bangalore" href="#"><i class="far fa-handshake my-fa text-4xl inline-block"></i></a>
+      <p class="display: inline-block font-semibold text-gray-500 text-sm px-2"><a href="#"><strong>Career Counselling</strong></a></p>
+    </div>
+   
+    </div>
+  </section>
+    <section class="overflow-hidden text-gray-700">
+      <div class="container px-5 py-2 mx-auto lg:pt-12 lg:px-32">
+        <p class="font-semibold text-2xl text-black py-4"><span class="underline underline-offset-8 decoration-green-500 decoration-1">Where </span>you can study</p>
+        <div class="flex flex-wrap -m-1 md:-m-2">
+          <div class="flex flex-wrap lg:w-1/4 md:w-1/3 sm:w-1/2">
+            <div class="w-full p-1 md:p-2 relative group">
+              <img alt="gallery" class="block object-cover object-center w-full h-full hover:opacity-80"
+                src="assets\image\1.jpg">
+                <div class="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden"><p class="font-semibold text-white text-md text-center mt-32 group-hover:opacity-100">Education in UK</p></div>.
+                <div class="opacity-0 group-hover:opacity-100 duration-300 absolute inset-x-0 bottom-0 flex justify-center text-white text-xl font-semibold w-full h-full bg-black hover:bg-opacity-40"><p class="mt-12 text-right text-sm font-semibold">Higher Education in<br/>UK |
+                </p>
+              </div>
+            </div>
+
+          </div>
+          <div class="flex flex-wrap lg:w-1/4 md:w-1/3 sm:w-1/2">
+            <div class="w-full p-1 md:p-2 relative group">
+              <img alt="gallery" class="block object-cover object-center w-full h-full hover:opacity-50"
+                src="assets\image\2.jpg">
+                <div class="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden"><p class="font-semibold text-white text-md text-center mt-32 group-hover:opacity-100">Education in UK</p></div>
+                <div class="opacity-0 group-hover:opacity-100 duration-300 absolute inset-x-0 bottom-0 flex justify-center text-white text-xl font-semibold w-full h-full bg-black hover:bg-opacity-40"><p class="mt-12 text-right text-sm font-semibold">Higher Education in<br/>UK |
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="flex flex-wrap lg:w-1/4 md:w-1/3 sm:w-1/2">
+            <div class="w-full p-1 md:p-2 relative group">
+              <img alt="gallery" class="block object-cover object-center w-full h-full"
+                src="assets\image\3.jpg">
+                <div class="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden"><p class="font-semibold text-white text-md text-center mt-32 group-hover:opacity-100">Education in UK</p></div>
+                <div class="opacity-0 group-hover:opacity-100 duration-300 absolute inset-x-0 bottom-0 flex justify-center text-white text-xl font-semibold w-full h-full bg-black hover:bg-opacity-40"><p class="mt-12 text-right text-sm font-semibold">Higher Education in<br/>UK |
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="flex flex-wrap lg:w-1/4 md:w-1/3 sm:w-1/2">
+            <div class="w-full p-1 md:p-2 relative group">
+              <img alt="gallery" class="block object-cover object-center w-full h-full"
+                src="assets\image\4.jpg"> 
+                <div class="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden"><p class="font-semibold text-white text-md text-center mt-32 group-hover:opacity-100">Education in UK</p></div>
+                <div class="opacity-0 group-hover:opacity-100 duration-300 absolute inset-x-0 bottom-0 flex justify-center text-white text-xl font-semibold w-full h-full bg-black hover:bg-opacity-40"><p class="mt-12 text-right text-sm font-semibold">Higher Education in<br/>UK |
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="flex flex-wrap lg:w-1/4 md:w-1/3 sm:w-1/2">
+            <div class="w-full p-1 md:p-2 relative group">
+              <img alt="gallery" class="block object-cover object-center w-full h-full"
+                src="assets\image\5.jpg">
+                <div class="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden"><p class="font-semibold text-white text-md text-center mt-32 group-hover:opacity-100">Education in UK</p></div>
+                <div class="opacity-0 group-hover:opacity-100 duration-300 absolute inset-x-0 bottom-0 flex justify-center text-white text-xl font-semibold w-full h-full bg-black hover:bg-opacity-40"><p class="mt-12 text-right text-sm font-semibold">Higher Education in<br/>UK |
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="flex flex-wrap lg:w-1/4 md:w-1/3 sm:w-1/2">
+            <div class="w-full p-1 md:p-2 relative group">
+              <img alt="gallery" class="block object-cover object-center w-full h-full"
+                src="assets\image\6.jpg"> 
+                <div class="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden"><p class="font-semibold text-white text-md text-center mt-32 group-hover:opacity-100">Education in UK</p></div>
+                <div class="opacity-0 group-hover:opacity-100 duration-300 absolute inset-x-0 bottom-0 flex justify-center text-white text-xl font-semibold w-full h-full bg-black hover:bg-opacity-40"><p class="mt-12 text-right text-sm font-semibold">Higher Education in<br/>UK |
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="flex flex-wrap lg:w-1/4 md:w-1/3 sm:w-1/2">
+            <div class="w-full p-1 md:p-2 relative group">
+              <img alt="gallery" class="block object-cover object-center w-full h-full"
+                src="assets\image\7.jpg">
+                <div class="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden"><p class="font-semibold text-white text-md text-center mt-32 group-hover:opacity-100">Education in UK</p></div>
+                <div class="opacity-0 group-hover:opacity-100 duration-300 absolute inset-x-0 bottom-0 flex justify-center text-white text-xl font-semibold w-full h-full bg-black hover:bg-opacity-40"><p class="mt-12 text-right text-sm font-semibold">Higher Education in<br/>UK |
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="flex flex-wrap lg:w-1/4 md:w-1/3 sm:w-1/2">
+            <div class="w-full p-1 md:p-2 relative group">
+              <img alt="gallery" class="block object-cover object-center w-full h-full"
+                src="assets\image\8.jpg">
+                <div class="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden"><p class="font-semibold text-white text-md text-center mt-32 group-hover:opacity-100">Education in UK</p></div>
+                <div class="opacity-0 group-hover:opacity-100 duration-300 absolute inset-x-0 bottom-0 flex justify-center text-white text-xl font-semibold w-full h-full bg-black hover:bg-opacity-40"><p class="mt-12 text-right text-sm font-semibold">Higher Education in<br/>UK |
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="flex flex-wrap lg:w-1/4 md:w-1/3 sm:w-1/2">
+            <div class="w-full p-1 md:p-2 relative group">
+              <img alt="gallery" class="block object-cover object-center w-full h-full"
+                src="assets\image\9.png">
+                <div class="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden"><p class="font-semibold text-white text-md text-center mt-32 group-hover:opacity-100">Education in UK</p></div>
+                <div class="opacity-0 group-hover:opacity-100 duration-300 absolute inset-x-0 bottom-0 flex justify-center text-white text-xl font-semibold w-full h-full bg-black hover:bg-opacity-40"><p class="mt-12 text-right text-sm font-semibold">Higher Education in<br/>UK |
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="flex flex-wrap lg:w-1/4 md:w-1/3 sm:w-1/2">
+            <div class="w-full p-1 md:p-2 relative group">
+              <img alt="gallery" class="block object-cover object-center w-full h-full"
+                src="assets\image\10.jpg">
+                <div class="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden"><p class="font-semibold text-white text-md text-center mt-32 group-hover:opacity-100">Education in UK</p></div>
+                <div class="opacity-0 group-hover:opacity-100 duration-300 absolute inset-x-0 bottom-0 flex justify-center text-white text-xl font-semibold w-full h-full bg-black hover:bg-opacity-40"><p class="mt-12 text-right text-sm font-semibold">Higher Education in<br/>UK |
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="flex flex-wrap lg:w-1/4 md:w-1/3 sm:w-1/2">
+            <div class="w-full p-1 md:p-2 relative group">
+              <img alt="gallery" class="block object-cover object-center w-full h-full"
+                src="assets\image\11.png">
+                <div class="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden"><p class="font-semibold text-white text-md text-center mt-32 group-hover:opacity-100">Education in UK</p></div>
+                <div class="opacity-0 group-hover:opacity-100 duration-300 absolute inset-x-0 bottom-0 flex justify-center text-white text-xl font-semibold w-full h-full bg-black hover:bg-opacity-40"><p class="mt-12 text-right text-sm font-semibold">Higher Education in<br/>UK |
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="flex flex-wrap lg:w-1/4 md:w-1/3 sm:w-1/2">
+            <div class="w-full p-1 md:p-2 relative group">
+              <img alt="gallery" class="block object-cover object-center w-full h-full"
+                src="assets\image\12.png">
+                <div class="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden"><p class="font-semibold text-white text-md text-center mt-32 group-hover:opacity-100">Education in UK</p></div>
+                <div class="opacity-0 group-hover:opacity-100 duration-300 absolute inset-x-0 bottom-0 flex justify-center text-white text-xl font-semibold w-full h-full bg-black hover:bg-opacity-40"><p class="mt-12 text-right text-sm font-semibold">Higher Education in<br/>UK |
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="flex flex-wrap lg:w-1/4 md:w-1/3 sm:w-1/2">
+            <div class="w-full p-1 md:p-2 relative group">
+              <img alt="gallery" class="block object-cover object-center w-full h-full"
+                src="assets\image\13.jpg">
+                <div class="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden"><p class="font-semibold text-white text-md text-center mt-32 group-hover:opacity-100">Education in UK</p></div>
+                <div class="opacity-0 group-hover:opacity-100 duration-300 absolute inset-x-0 bottom-0 flex justify-center text-white text-xl font-semibold w-full h-full bg-black hover:bg-opacity-40"><p class="mt-12 text-right text-sm font-semibold">Higher Education in<br/>UK |
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="flex flex-wrap lg:w-1/4 md:w-1/3 sm:w-1/2">
+            <div class="w-full p-1 md:p-2 relative group">
+              <img alt="gallery" class="block object-cover object-center w-full h-full"
+                src="assets\image\14.jpg">
+                <div class="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden"><p class="font-semibold text-white text-md text-center mt-32 group-hover:opacity-100">Education in UK</p></div>
+                <div class="opacity-0 group-hover:opacity-100 duration-300 absolute inset-x-0 bottom-0 flex justify-center text-white text-xl font-semibold w-full h-full bg-black hover:bg-opacity-40"><p class="mt-12 text-right text-sm font-semibold">Higher Education in<br/>UK |
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="flex flex-wrap lg:w-1/4 md:w-1/3 sm:w-1/2">
+            <div class="w-full p-1 md:p-2 relative group">
+              <img alt="gallery" class="block object-cover object-center w-full h-full"
+                src="assets\image\15.jpg">
+                <div class="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden"><p class="font-semibold text-white text-md text-center mt-32 group-hover:opacity-100">Education in UK</p></div>
+                <div class="opacity-0 group-hover:opacity-100 duration-300 absolute inset-x-0 bottom-0 flex justify-center text-white text-xl font-semibold w-full h-full bg-black hover:bg-opacity-40"><p class="mt-12 text-right text-sm font-semibold">Higher Education in<br/>UK |
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="flex flex-wrap lg:w-1/4 md:w-1/3 sm:w-1/2">
+            <div class="w-full p-1 md:p-2 relative group">
+              <img alt="gallery" class="block object-cover object-center w-full h-full"
+                src="assets\image\16.png">
+                <div class="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden"><p class="font-semibold text-white text-md text-center mt-32 group-hover:opacity-100">Education in UK</p></div>
+                <div class="opacity-0 group-hover:opacity-100 duration-300 absolute inset-x-0 bottom-0 flex justify-center text-white text-xl font-semibold w-full h-full bg-black hover:bg-opacity-40"><p class="mt-12 text-right text-sm font-semibold">Higher Education in<br/>UK |
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="flex flex-wrap lg:w-1/4 md:w-1/3 sm:w-1/2">
+            <div class="w-full p-1 md:p-2 relative group">
+              <img alt="gallery" class="block object-cover object-center w-full h-full"
+                src="assets\image\17.jpg">
+                <div class="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden"><p class="font-semibold text-white text-md text-center mt-32 group-hover:opacity-100">Education in UK</p></div>
+                <div class="opacity-0 group-hover:opacity-100 duration-300 absolute inset-x-0 bottom-0 flex justify-center text-white text-xl font-semibold w-full h-full bg-black hover:bg-opacity-40"><p class="mt-12 text-right text-sm font-semibold">Higher Education in<br/>UK |
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="flex flex-wrap lg:w-1/4 md:w-1/3 sm:w-1/2">
+            <div class="w-full p-1 md:p-2 relative group">
+              <img alt="gallery" class="block object-cover object-center w-full h-full"
+                src="assets\image\18.jpg">
+                <div class="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden"><p class="font-semibold text-white text-md text-center mt-32 group-hover:opacity-100">Education in UK</p></div>
+                <div class="opacity-0 group-hover:opacity-100 duration-300 absolute inset-x-0 bottom-0 flex justify-center text-white text-xl font-semibold w-full h-full bg-black hover:bg-opacity-40"><p class="mt-12 text-right text-sm font-semibold">Higher Education in<br/>UK |
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="flex flex-wrap lg:w-1/4 md:w-1/3 sm:w-1/2">
+            <div class="w-full p-1 md:p-2 relative group">
+              <img alt="gallery" class="block object-cover object-center w-full h-full"
+                src="assets\image\19.png">
+                <div class="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden"><p class="font-semibold text-white text-md text-center mt-32 group-hover:opacity-100">Education in UK</p></div>
+                <div class="opacity-0 group-hover:opacity-100 duration-300 absolute inset-x-0 bottom-0 flex justify-center text-white text-xl font-semibold w-full h-full bg-black hover:bg-opacity-40"><p class="mt-12 text-right text-sm font-semibold">Higher Education in<br/>UK |
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="flex flex-wrap lg:w-1/4 md:w-1/3 sm:w-1/2">
+            <div class="w-full p-1 md:p-2 relative group">
+              <img alt="gallery" class="block object-cover object-center w-full h-full"
+                src="assets\image\20.jpg">
+                <div class="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden"><p class="font-semibold text-white text-md text-center mt-32 group-hover:opacity-100">Education in UK</p></div>
+                <div class="opacity-0 group-hover:opacity-100 duration-300 absolute inset-x-0 bottom-0 flex justify-center text-white text-xl font-semibold w-full h-full bg-black hover:bg-opacity-40"><p class="mt-12 text-right text-sm font-semibold">Higher Education in<br/>UK |
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section>
+    <div class="container grid lg:grid-cols-3 gap-4 md:grid-cols-2 px-5 py-2 mx-auto lg:pt-12 lg:px-32">
+      <image src="assets/image/abb.jpg" style="height:495px;" class="lg:col-span-2">
+      <div class=":md:col-span-2">
+        <div class="w-full">
+        <form class="bg-white shadow-2xl shadow-gray-600 px-8 pt-6 pb-8 mb-4">
+          <p class="font-semibold text-xl py-2">Enquire Us</p>
+          <div class="input-icons">
+            <i class="fa fa-user icon absolute text-rose-500 text-sm"></i>
+            <input class="input-field w-full px-10 text-left appearance-none border rounded w-full py-2 text-gray-700 leading-tight focus:outline-none focus:shadow-outline text-sm" id="username" type="text" placeholder="Enter Name">
+          </div>
+          <div class="input-icons mt-2">
+            <i class="fa far fa-envelope icon absolute text-rose-500 text-sm"></i>
+            <input class="input-field w-full px-10 text-left appearance-none border rounded w-full py-2 text-gray-700 leading-tight focus:outline-none focus:shadow-outline text-sm" id="username" type="email" placeholder="Enter Email">
+          </div>
+          <div class="input-icons mt-2">
+            <i class="fa far fas fa-mobile icon absolute text-rose-500 text-sm"></i>
+            <input class="input-field w-full px-10 text-left appearance-none border rounded w-full py-2 text-gray-700 leading-tight focus:outline-none focus:shadow-outline text-sm" id="username" type="tel" placeholder="Enter mobile">
+          </div>
+          <div class="input-icons mt-2">
+            <i class="fa far fas fas fa-home icon absolute text-rose-500 text-sm"></i>
+            <select class="input-field w-full px-10 text-left appearance-none border rounded w-full py-2 text-gray-700 leading-tight focus:outline-none focus:shadow-outline text-sm form-select appearance-none ntext-base
+            bg-white bg-clip-padding bg-no-repeat
+            rounded
+            transition
+            ease-in-out
+            m-0
+            focus:text-gray-700 focus:bg-white focus:border-gray-600 focus:outline-none" aria-label="Default select example" id="username">
+              <option value="selected" class="bg-blue-500 text-white">Select State</option>
+              <option value="Andhra Pradesh">Andhra Pradesh</option>
+              <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
+              <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+              <option value="Assam">Assam</option>
+              <option value="Bihar">Bihar</option>
+              <option value="Chandigarh">Chandigarh</option>
+              <option value="Chhattisgarh">Chhattisgarh</option>
+              <option value="Dadar and Nagar Haveli">Dadar and Nagar Haveli</option>
+              <option value="Daman and Diu">Daman and Diu</option>
+              <option value="Delhi">Delhi</option>
+              <option value="Lakshadweep">Lakshadweep</option>
+              <option value="Puducherry">Puducherry</option>
+              <option value="Goa">Goa</option>
+              <option value="Gujarat">Gujarat</option>
+              <option value="Haryana">Haryana</option>
+              <option value="Himachal Pradesh">Himachal Pradesh</option>
+              <option value="Jammu and Kashmir">Jammu and Kashmir</option>
+              <option value="Jharkhand">Jharkhand</option>
+              <option value="Karnataka">Karnataka</option>
+              <option value="Kerala">Kerala</option>
+              <option value="Madhya Pradesh">Madhya Pradesh</option>
+              <option value="Maharashtra">Maharashtra</option>
+              <option value="Manipur">Manipur</option>
+              <option value="Meghalaya">Meghalaya</option>
+              <option value="Mizoram">Mizoram</option>
+              <option value="Nagaland">Nagaland</option>
+              <option value="Odisha">Odisha</option>
+              <option value="Punjab">Punjab</option>
+              <option value="Rajasthan">Rajasthan</option>
+              <option value="Sikkim">Sikkim</option>
+              <option value="Tamil Nadu">Tamil Nadu</option>
+              <option value="Telangana">Telangana</option>
+              <option value="Tripura">Tripura</option>
+              <option value="Uttar Pradesh">Uttar Pradesh</option>
+              <option value="Uttarakhand">Uttarakhand</option>
+              <option value="West Bengal">West Bengal</option>
+            </select>
+          </div>
+          <div class="input-icons mt-2">
+            <i class="fa fa-map-marker icon absolute text-rose-600 text-sm"></i>
+            <select class="input-field w-full px-10 text-left appearance-none border rounded w-full py-2 text-gray-700 leading-tight focus:outline-none focus:shadow-outline text-sm form-select appearance-none ntext-base
+            bg-white bg-clip-padding bg-no-repeat
+            rounded
+            transition
+            ease-in-out
+            m-0
+            focus:text-gray-700 focus:bg-white focus:border-gray-600 focus:outline-none" aria-label="Default select example" id="username">
+            <option value="dog">Select Location</option>
+            <option value="cat">Cat</option>
+            <option value="hamster">Hamster</option>
+            <option value="parrot">Parrot</option>
+            <option value="spider">Spider</option>
+            <option value="goldfish">Goldfish</option>
+            </select>
+          </div>
+          <div class="input-icons mt-2">
+            <i class="fa fa-globe icon absolute text-rose-600 text-sm"></i>
+            <select class="input-field w-full px-10 text-left appearance-none border rounded w-full py-2 text-gray-700 leading-tight focus:outline-none focus:shadow-outline text-sm form-select appearance-none ntext-base
+            bg-white bg-clip-padding bg-no-repeat
+            rounded
+            transition
+            ease-in-out
+            m-0
+            focus:text-gray-700 focus:bg-white focus:border-gray-600 focus:outline-none" aria-label="Default select example" id="username">
+            <option value="dog">Select Country</option>
+            <option value="cat">Cat</option>
+            <option value="hamster">Hamster</option>
+            <option value="parrot">Parrot</option>
+            <option value="spider">Spider</option>
+            <option value="goldfish">Goldfish</option>
+            </select>
+          </div>
+          <div class="input-icons mt-2">
+            <i class="fa far fa-calendar icon absolute text-rose-600 text-sm"></i>
+            <select class="input-field w-full px-10 text-left appearance-none border rounded w-full py-2 text-gray-700 leading-tight focus:outline-none focus:shadow-outline text-sm form-select appearance-none ntext-base
+            bg-white bg-clip-padding bg-no-repeat
+            rounded
+            transition
+            ease-in-out
+            m-0
+            focus:text-gray-700 focus:bg-white focus:border-gray-600 focus:outline-none" aria-label="Default select example" id="username">
+            <option value="dog">Select Intake</option>
+            <option value="cat">Cat</option>
+            <option value="hamster">Hamster</option>
+            <option value="parrot">Parrot</option>
+            <option value="spider">Spider</option>
+            <option value="goldfish">Goldfish</option>
+            </select>
+          </div>
+          <div class="input-icons mt-2">
+            <i class="fa fa-check icon absolute text-rose-600 text-sm"></i>
+            <select class="input-field w-full px-10 text-left appearance-none border rounded w-full py-2 text-gray-700 leading-tight focus:outline-none focus:shadow-outline text-sm form-select appearance-none ntext-base
+            bg-white bg-clip-padding bg-no-repeat
+            rounded
+            transition
+            ease-in-out
+            m-0
+            focus:text-gray-700 focus:bg-white focus:border-gray-600 focus:outline-none" aria-label="Default select example" id="username">
+            <option value="dog">Select Course Interested in</option>
+            <option value="cat">Cat</option>
+            <option value="hamster">Hamster</option>
+            <option value="parrot">Parrot</option>
+            <option value="spider">Spider</option>
+            <option value="goldfish">Goldfish</option>
+            </select>
+          </div>
+          <button type="submit" class="rounded py-2 bg-rose-600 text-white text-sm w-full mt-4">SUBMIT</button>
+        </form>
+      </div>
+    </div>
+    </div>
+    </section>
+    <section>
+<div class="grid lg:grid-cols-2 px-52 gap-10 md:grid-cols-2 sm:grid-cols-1 mx-auto">
+  <div>
+    <p class="font-semibold text-2xl text-black py-4"><span class="underline underline-offset-8 decoration-green-500 decoration-1">Overview</p>
+      <p class="text-justify text-sm">Joinus4GlobalEducation is one of the top overseas education consultants in Bangalore, with an overall experience of more than 10 years in Education Counselling Services and an adept acumen in College admission procedure we thrive on quality service to our clients. MBBS in Ukraine would be the perfect answer to this question. Study MBBS in Ukraine offers excellent medical career across the globe. Joinus4Global Education is an best Overseas Education Consultants in Bangalore, Indian students can get direct admission for low-cost MBBS in Ukraine. Apply for MBBS admission in top Ukrainian colleges to study MBBS in Ukraine for Indian students.
+        <br><br><br>
+         To earn medical expertise, get admission at low cost MBBS in Russia, Russian MBBS admission is worth for Indian students. The eligibility to study MBBS in Russia is after 10+2. Joinus4GlobalEducation is an <b>Abroad Education Consultants in Bangalore</b>, A Canadian MBA degree is highly regarded, making an MBA study in Canada will be attractive to many international students. Among Canada’s beautiful natural scenery lies a welcoming environment that carries a high quality of life. Many researchers, scientists, and entrepreneurs have helped develop Canada into one of the most intellectually stimulating places to learn.
+        <br><br><br>
+         MBA isn’t just constrained to one particular field. One can do MBA in International Business, Hotel Management, Market and Finance, Hospital Management, HR, Agriculture, Accounting, Communication and lot more. Joinus4GlobalEducation is an Abroad Education Consultants in Bangalore, the right course is one which you are interested in and not what is generally followed. The market does matter, but as long as you are analyzing and focusing on development on a whole, any field would prove equally beneficial.
+         </p>
+  </div>
+ <div>
+  <p class="font-semibold text-2xl text-black py-4"><span class="underline underline-offset-8 decoration-green-500 decoration-1">Our</span> Services</p>
+    <div class="h-auto bg-sky-400 rounded-lg px-4 text-white py-6">
+      <div class="flex w-full">
+        <div class="w-12">
+          <i class="fa fa-user" aria-hidden="true"></i>
+          </div>
+        <div class="w-11/12">
+      <p>When you are looking education pathway it can be very confuse, stressful, time consuming about college selection and admission process. This looks even more difficult when you are planning for international education.
+      <br class="text-right">Read more..</br>
+      </p>
+      </div>
+    </div>
+    </div>
+    <div class="h-auto bg-orange-400 rounded-lg px-4 text-white py-6 mt-6">
+      <div class="flex w-full">
+        <div class="w-12">
+          <i class="fa fa-user" aria-hidden="true"></i>
+          </div>
+        <div class="w-11/12">
+      <p>When you are looking education pathway it can be very confuse, stressful, time consuming about college selection and admission process. This looks even more difficult when you are planning for international education.
+      <br class="text-right">Read more..</br>
+      </p>
+      </div>
+    </div>
+    </div>
+    <div class="h-auto bg-purple-400 rounded-lg px-4 text-white py-6 mt-6">
+      <div class="flex w-full">
+        <div class="w-12">
+          <i class="fa fa-user" aria-hidden="true"></i>
+          </div>
+        <div class="w-11/12">
+      <p>When you are looking education pathway it can be very confuse, stressful, time consuming about college selection and admission process. This looks even more difficult when you are planning for international education.
+      <br class="text-right">Read more..</br>
+      </p>
+      </div>
+    </div>
+    </div>
+ </div>
+</div>
+
+    </section>
+ 
+  
+  <section>
+
+    <div id="carouselExampleSlidesOnly" class="carousel slide relative py-32 mt-6" data-bs-ride="carousel" style="background-image: url('assets/image/newzealand.jpg')">
+      <div class="carousel-inner relative w-full overflow-hidden">
+        <div class="carousel-item active relative float-left w-full">
+          <p class="text-white text-6xl font-semibold text-center px-60 mx-auto mt-4">
+            Our Vision
+          </p>
+          <p class="text-white text-center text-sm text-lg px-60"> Our employees bring diverse backgrounds and points of view to the service of our constituents. We are one of the fastest and most trusted overseas education and immigration consultants in India. We believe in fostering globalization, through the promotion of higher education across borders.</p>
+        </div>
+        <div class="carousel-item relative float-left w-full">
+          <p class="text-white text-6xl font-semibold text-center px-60 mx-auto mt-4">
+            Our Mission
+          </p>
+          <p class="text-white text-center text-sm text-lg px-60"> To help students achieve their goals and fulfil their dreams by being a world-class foreign education consultant. We ensure that each of our student goes through a hassle-free admission process to the university of their choice. Backed by our expert team of professional consultants, we hope to offer students an opportunity to identify the right universities thereby facilitating lifelong learning. We aim at transforming lives by offering the right education and career guidance for students.</p>
+        </div>
+        <div class="carousel-item relative float-left w-full">
+          <p class="text-white text-6xl font-semibold text-center px-60 mx-auto mt-4">
+            Career
+          </p>
+       <p class="text-white text-center text-sm text-lg px-60">
+        Our employees bring diverse backgrounds and points of view to the service of our constituents. We are one of the fastest and most trusted overseas education and immigration consultants in India. We believe in fostering globalization, through the promotion of higher education across borders.
+       </p>
+        </div>
+      </div>
+    </div>
+  </section>
+<section>
+  <div class="grid grid-cols-2 gap-10 mx-auto px-32 mt-6">
+    <div>
+      <p class="font-semibold text-2xl text-black"><span class="underline underline-offset-8 decoration-green-500 decoration-1">Testimonials</p>
+      <div class="grid grid-rows-2 grid-flow-col">
+        <div>
+            <div id="carouselExampleSlidesOnly" class="carousel slide relative mt-6" data-bs-ride="carousel">
+          <div class="carousel-inner relative w-full overflow-hidden">
+            <div class="carousel-item active relative float-left w-full">
+              <button><i class="fa fa-quote-left testimonial_fa" aria-hidden="true"></i></button>
+              <p class="text-black text-center text-xs font-semibold text-justify">Joinus4GlobalEducation Best Consultants in India. Thanks, Kunal Sir for suggesting me better Option. They Are Providing IELTS Coaching Classes with Superb IELTS Score 7.0+. Friendly staff &amp; wide variety of options to study in best colleges for making our future bright. If I had any queries, she would always reply promptly and with the right answer, no matter how many times I called them. I would also like to thank the supporting staff, especially , as they always kept me updated about the progress of my college application and visa.</p>
+            </div>
+            <div class="carousel-item relative float-left w-full">
+              <button><i class="fa fa-quote-left testimonial_fa" aria-hidden="true"></i></button>
+              <p class="text-black text-center text-xs font-semibold text-justify">Joinus4GlobalEducation Best Consultants in India. Thanks, Kunal Sir for suggesting me better Option. They Are Providing IELTS Coaching Classes with Superb IELTS Score 7.0+. Friendly staff &amp; wide variety of options to study in best colleges for making our future bright. If I had any queries, she would always reply promptly and with the right answer, no matter how many times I called them. I would also like to thank the supporting staff, especially , as they always kept me updated about the progress of my college application and visa.</p>
+            </div>
+            <div class="carousel-item relative float-left w-full">
+              <button><i class="fa fa-quote-left testimonial_fa" aria-hidden="true"></i></button>
+              <p class="text-black text-center text-xs font-semibold text-justify">Joinus4GlobalEducation Best Consultants in India. Thanks, Kunal Sir for suggesting me better Option. They Are Providing IELTS Coaching Classes with Superb IELTS Score 7.0+. Friendly staff &amp; wide variety of options to study in best colleges for making our future bright. If I had any queries, she would always reply promptly and with the right answer, no matter how many times I called them. I would also like to thank the supporting staff, especially , as they always kept me updated about the progress of my college application and visa.</p>
+            </div>
+            </div>
+        </div>
+        <div id="carouselExampleSlidesOnly" class="carousel slide relative mt-6" data-bs-ride="carousel">
+          <div class="carousel-inner relative w-full overflow-hidden">
+            <div class="carousel-item active relative float-left w-full">
+              <div class="grid grid-rows-1 grid-flow-col">
+                <div><image src="assets/image/reviews2.jpg" class="w-24 h-auto"></div>
+                <div><p class="font-bold text-black"><strong>Raghav Awashthi</strong></p>
+                  <p class="text-teal-600 text-sm font-semibold">
+                    <span>Chlinical Chemistry Technologist</span>
+                    <br/>
+                    <span>Officeal All Star Cafe</span>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item relative float-left w-full">
+              <div class="grid grid-rows-1 grid-flow-col">
+                <div><image src="assets/image/reviews2.jpg" class="w-24 h-auto"></div>
+                <div><p class="font-bold text-black"><strong>Raghav Awashthi</strong></p>
+                  <p class="text-teal-600 text-sm font-semibold">
+                    <span>Chlinical Chemistry Technologist</span>
+                    <br/>
+                    <span>Officeal All Star Cafe</span>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item relative float-left w-full">
+              <div class="grid grid-rows-1 grid-flow-col">
+                <div><image src="assets/image/reviews2.jpg" class="w-24 h-auto"></div>
+                <div><p class="font-bold text-black"><strong>Raghav Awashthi</strong></p>
+                  <p class="text-teal-600 text-sm font-semibold">
+                    <span>Chlinical Chemistry Technologist</span>
+                    <br/>
+                    <span>Officeal All Star Cafe</span>
+                  </p>
+                </div>
+              </div>
+            </div>
+            </div>
+
+        </div>
+      </div>
+
+      
+      </div>
+    </div>
+   <div><p class="font-semibold text-2xl text-black"><span class="underline underline-offset-8 decoration-green-500 decoration-1">Upcoming</span> Events</p>
+    <div class="grid grid-rows-2 grid-flow-col gap-4 mt-6">
+      <div>
+        <div class="grid grid-rows-1 grid-flow-col gap-4">
+          <div><image src="assets/image/globle.jpg" class="w-44 h-auto"></div>
+          <div><p class="font-bold text-black text-sm"><strong>Global Education Fair</strong></p>
+            <span class="font-semibold text-gray-400 hover:text-gray-500 text-sm">Get Expert Guidance on Top institutions, Courses, Admission, Fees, Visa &amp; Scholarships Attend the Global Education Fair &amp; apply for scholarships &amp; spot offer
+            </br>Register Now
+            </span>
+
+          </div>
+        </div>
+      </div>
+    
+      <div>
+        <div class="grid grid-rows-1 grid-flow-col gap-4">
+          <div><image src="assets/image/event5.jpg" class="w-44 h-auto"></div>
+          <div><p class="font-bold text-black text-sm"><strong>Global Education Fair</strong></p>
+            <span class="font-semibold text-gray-400 hover:text-gray-500 text-sm">Get Expert Guidance on Top institutions, Courses, Admission, Fees, Visa &amp; Scholarships Attend the Global Education Fair &amp; apply for scholarships &amp; spot offer
+            </br>Register Now
+            </span>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+   
+  </div>
+</section>
+<section>
+  <div id="carouselExampleSlidesOnly" class="carousel slide relative" data-bs-ride="carousel">
+    <div class="carousel-inner relative w-full overflow-hidden">
+      <div class="carousel-item active relative float-left w-full">
+        <div class="grid grid-cols-5">
+          <div>
+            <img src="assets/image/uni1.jpg" alt="">
+          </div>
+          <div>
+            <img src="assets/image/uni2.jpg" alt="">
+          </div>
+           <div>
+            <img src="assets/image/uni3.jpg" alt="">
+          </div>
+          <div>
+            <img src="assets/image/uni4.jpg" alt="">
+          </div>
+          <div>
+            <img src="assets/image/uni5.jpg" alt="">
+          </div>
+
+        </div>
+      </div>
+      <div class="carousel-item relative float-left w-full">
+        <div class="grid grid-cols-5">
+          <div>
+            <img src="assets/image/uni6.jpg" alt="">
+          </div>
+          <div>
+            <img src="assets/image/uni7.jpg" alt="">
+          </div>
+           <div>
+            <img src="assets/image/uni8.jpg" alt="">
+          </div>
+          <div>
+            <img src="assets/image/uni9.jpg" alt="">
+          </div>
+          <div>
+            <img src="assets/image/uni10.jpg" alt="">
+          </div>
+
+        </div>
+      </div>
+     
+    </div>
+  </div>
+
+</section>
+
+  <footer class="text-center bg-gray-900 text-gray-400 mx-auto py-6 mt-10">
+  <div class="container mx-auto my-auto">
+    <div class="grid lg:grid-cols-4 md:grid-cols-2">
+      <div class="mb-6 mx-auto">
+        <h5 class="uppercase font-bold mb-2.5 text-left"> <span class="text-yellow-600 font-bold text-lg"> |</span> Useful Links</h5>
+          <ul class="list-unstyled list-none mb-0 text-sm text-left mx-auto">
+            <li><a href="#" title="" class="hover:text-yellow-600"><i class="fa fa-angle-double-right"></i> Home Page</a></li>
+            <li><a href="#" title="" class="hover:text-yellow-600"><i class="fa fa-angle-double-right"></i> About Us</a></li>
+            <li><a href="#" title="" class="hover:text-yellow-600"><i class="fa fa-angle-double-right"></i> Services</a></li>
+            <li><a href="#" title="" class="hover:text-yellow-600"><i class="fa fa-angle-double-right"></i> Canada Immigration</a></li>
+            <li><a a href="#" title="" class="hover:text-yellow-600"><i class="fa fa-angle-double-right"></i> Admission Guidance</a></li>
+            <li><a href="#" title="" class="hover:text-yellow-600"><i class="fa fa-angle-double-right"></i> Career Counselling</a></li>
+            <li><a href="#" title="" class="hover:text-yellow-600"><i class="fa fa-angle-double-right"></i> We Are</a></li>
+            <li><a href="#" title="" class="hover:text-yellow-600"><i class="fa fa-angle-double-right"></i> Why Us</a></li>
+            <li><a href="#" title="" class="hover:text-yellow-600"><i class="fa fa-angle-double-right"></i> Founder Message</a></li>
+            <li><a href="#" title="" class="hover:text-yellow-600"><i class="fa fa-angle-double-right"></i> Blog</a></li>
+            <li><a href="#" title="" class="hover:text-yellow-600"><i class="fa fa-angle-double-right"></i> Contact Us</a></li> 
+            <li><a href="#" title="" class="hover:text-yellow-600"><i class="fa fa-angle-double-right"></i> Our Branches</a></li>
+            <li><a href="#" title="" class="hover:text-yellow-600"><i class="fa fa-angle-double-right"></i> FAQ</a></li>
+            <li><a href="#" title="" class="hover:text-yellow-600"><i class="fa fa-angle-double-right"></i> Admin</a></li>
+         </ul>
+      </div>
+
+
+      <div class="mb-6 mx-auto">
+        <h5 class="uppercase font-bold mb-2.5 text-left"><span class="text-yellow-600 font-bold text-lg"> |</span> Quick Links</h5>
+
+          <ul class="list-unstyled list-none mb-0 text-sm text-left mx-auto">
+            <li><a href="#" title="" class="hover:text-yellow-600"><i class="fa fa-angle-double-right"></i> MBA</a></li>
+            <li><a href="#" title="" class="hover:text-yellow-600"><i class="fa fa-angle-double-right"></i> MBBS</a></li>
+            <li><a href="#" title="" class="hover:text-yellow-600"><i class="fa fa-angle-double-right"></i> MS</a></li>
+            <li><a href="#" title="" class="hover:text-yellow-600"><i class="fa fa-angle-double-right"></i> B.TECH</a></li>
+            <li><a a href="#" title="" class="hover:text-yellow-600"><i class="fa fa-angle-double-right"></i> IELTS Coaching</a></li>
+            <li><a href="#" title="" class="hover:text-yellow-600"><i class="fa fa-angle-double-right"></i> TOEFL Coaching</a></li>
+            <li><a href="#" title="" class="hover:text-yellow-600"><i class="fa fa-angle-double-right"></i> GRE Coaching</a></li>
+            <li><a href="#" title="" class="hover:text-yellow-600"><i class="fa fa-angle-double-right"></i> GMAT Coaching</a></li>
+            <li><a href="#" title="" class="hover:text-yellow-600"><i class="fa fa-angle-double-right"></i> Institutional-Promotion</a></li>
+            <li><a href="#" title="" class="hover:text-yellow-600"><i class="fa fa-angle-double-right"></i> Local Gaurdian Service</a></li>
+           
+        </ul>
+      </div>
+
+      <div class="mb-6 mx-auto">
+        <h5 class="uppercase font-bold mb-2.5 text-left"> <span class="text-yellow-600 font-bold text-lg"> |</span> Useful Links</h5>
+        <ul class="list-unstyled list-none mb-0 text-sm text-left mx-auto">
+          <li><a href="#" title="" class="hover:text-yellow-600"><i class="fa fa-angle-double-right"></i> Home Page</a></li>
+          <li><a href="#" title="" class="hover:text-yellow-600"><i class="fa fa-angle-double-right"></i> About Us</a></li>
+          <li><a href="#" title="" class="hover:text-yellow-600"><i class="fa fa-angle-double-right"></i> Services</a></li>
+          <li><a href="#" title="" class="hover:text-yellow-600"><i class="fa fa-angle-double-right"></i> Canada Immigration</a></li>
+          <li><a a href="#" title="" class="hover:text-yellow-600"><i class="fa fa-angle-double-right"></i> Admission Guidance</a></li>
+          <li><a href="#" title="" class="hover:text-yellow-600"><i class="fa fa-angle-double-right"></i> Career Counselling</a></li>
+          <li><a href="#" title="" class="hover:text-yellow-600"><i class="fa fa-angle-double-right"></i> We Are</a></li>
+          <li><a href="#" title="" class="hover:text-yellow-600"><i class="fa fa-angle-double-right"></i> Why Us</a></li>
+          <li><a href="#" title="" class="hover:text-yellow-600"><i class="fa fa-angle-double-right"></i> Founder Message</a></li>
+          <li><a href="#" title="" class="hover:text-yellow-600"><i class="fa fa-angle-double-right"></i> Blog</a></li>
+          <li><a href="#" title="" class="hover:text-yellow-600"><i class="fa fa-angle-double-right"></i> Contact Us</a></li> 
+          <li><a href="#" title="" class="hover:text-yellow-600"><i class="fa fa-angle-double-right"></i> Our Branches</a></li>
+          <li><a href="#" title="" class="hover:text-yellow-600"><i class="fa fa-angle-double-right"></i> FAQ</a></li>
+          <li><a href="#" title="" class="hover:text-yellow-600"><i class="fa fa-angle-double-right"></i> Admin</a></li>
+       </ul>
+      </div>
+
+
+      <div class="mb-6 mx-auto">
+        <h5 class="uppercase font-bold mb-2.5 text-left"> <span class="text-yellow-600 font-bold text-lg"> |</span> Useful Links</h5>
+
+        <ul class="list-unstyled list-none mb-0 text-sm text-left mx-auto">
+          <li><a href="#" title="" class="hover:text-yellow-600"><i class="fa fa-angle-double-right"></i> Home Page</a></li>
+          <li><a href="#" title="" class="hover:text-yellow-600"><i class="fa fa-angle-double-right"></i> About Us</a></li>
+          <li><a href="#" title="" class="hover:text-yellow-600"><i class="fa fa-angle-double-right"></i> Services</a></li>
+          <li><a href="#" title="" class="hover:text-yellow-600"><i class="fa fa-angle-double-right"></i> Canada Immigration</a></li>
+          <li><a a href="#" title="" class="hover:text-yellow-600"><i class="fa fa-angle-double-right"></i> Admission Guidance</a></li>
+          <li><a href="#" title="" class="hover:text-yellow-600"><i class="fa fa-angle-double-right"></i> Career Counselling</a></li>
+          <li><a href="#" title="" class="hover:text-yellow-600"><i class="fa fa-angle-double-right"></i> We Are</a></li>
+          <li><a href="#" title="" class="hover:text-yellow-600"><i class="fa fa-angle-double-right"></i> Why Us</a></li>
+          <li><a href="#" title="" class="hover:text-yellow-600"><i class="fa fa-angle-double-right"></i> Founder Message</a></li>
+          <li><a href="#" title="" class="hover:text-yellow-600"><i class="fa fa-angle-double-right"></i> Blog</a></li>
+          <li><a href="#" title="" class="hover:text-yellow-600"><i class="fa fa-angle-double-right"></i> Contact Us</a></li> 
+          <li><a href="#" title="" class="hover:text-yellow-600"><i class="fa fa-angle-double-right"></i> Our Branches</a></li>
+          <li><a href="#" title="" class="hover:text-yellow-600"><i class="fa fa-angle-double-right"></i> FAQ</a></li>
+          <li><a href="#" title="" class="hover:text-yellow-600"><i class="fa fa-angle-double-right"></i> Admin</a></li>
+       </ul>
+      </div>
+
+    </div>
+  </div>
+
+<div class="mt-4">
+  <ul class="inline-block space-x-2">
+    <li class="inline-block text-yellow-600 border border-white hover:border-yellow-600  px-2 hover:bg-yellow-600 hover:text-white hover:bg-opacity-40">
+      <i class="fa fa-facebook text-sm" aria-hidden="true"></i>
+    </li>
+    <li class="inline-block text-yellow-600 border border-white hover:border-yellow-600  px-2 hover:bg-yellow-600 hover:text-white hover:bg-opacity-40">
+      <i class="fa fa-instagram text-sm" aria-hidden="true"></i>
+    </li>
+    <li class="inline-block text-yellow-600 border border-white hover:border-yellow-600  px-2 hover:bg-yellow-600 hover:text-white hover:bg-opacity-40">
+      <i class="fa fa-twitter text-sm" aria-hidden="true"></i>
+    </li>
+    <li class="inline-block text-yellow-600 border border-white hover:border-yellow-600  px-2 hover:bg-yellow-600 hover:text-white hover:bg-opacity-40">
+      <i class="fa fa-youtube text-sm" aria-hidden="true"></i>
+    </li>
+    <li class="inline-block text-yellow-600 border border-white hover:border-yellow-600  px-2 hover:bg-yellow-600 hover:text-white hover:bg-opacity-40">
+      <i class="fa fa-linkedin text-sm" aria-hidden="true"></i>
+    </li>
+  </ul>
+</div>
+  <div class="text-center py-4 bg-black mt-6">
+   <div class="grid lg:grid-cols-2 mx-auto text-center sm:grid-cols-1 md:grid-cols-1 sm:mx-auto">
+<div>
+  <a href="https://placiddigital.com/" target="blank"><p class="text-sm">Copyright © 2021-22. Placid digital.</p></a>
+</div>
+<div>
+  <p class=" text-sm hover:text-yellow-600">Privacy Policy | Disclaimer</p>
+</div>
+   </div>
+  </div>
+</footer>
+
+</body>
+
+</html>
